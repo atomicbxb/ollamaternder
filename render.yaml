@@ -1,7 +1,12 @@
-  - type: pserv
-    name: your-app-ollama
-    region: oregon
-    runtime: docker
-    dockerContext: ./ollama
-    dockerfilePath: ./ollama/Dockerfile
-    plan: starter
+services:
+  - type: web
+    name: ollama
+    env: docker
+    dockerfilePath: ./Dockerfile
+    plan: standard
+    scaling:
+      minInstances: 1
+      maxInstances: 1
+    envVars:
+      - key: PORT
+        value: 11434
