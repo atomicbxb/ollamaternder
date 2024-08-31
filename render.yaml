@@ -1,12 +1,11 @@
 services:
   - type: web
-    name: ollama
+    name: ollama-service
     env: docker
     dockerfilePath: ./Dockerfile
-    plan: standard
-    scaling:
-      minInstances: 1
-      maxInstances: 1
     envVars:
       - key: PORT
         value: 11434
+    scaling:
+      minInstances: 1
+      maxInstances: 1
